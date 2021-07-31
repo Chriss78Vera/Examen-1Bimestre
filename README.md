@@ -3,93 +3,28 @@ Examen de primer bimestre 30/07/2021
 
 Ejercicio 1:
 
-#Librerias importadas
-    import couchdb
-    from tweepy import Stream
-    from tweepy import OAuthHandler
-    from tweepy.streaming import StreamListener
-    import json
-#APIS
-    ckey = "38wwOoHHCJy0cjgMBqjPzDGLF"
-    csecret = "fjogk0ofjk1VBrG2xZcC1bxce2tVR6DkFbQPjUeh5wn9HB1APV"
-    atoken = "115946548-kX87o1QHjrHmsnycH33Yc2KMb8yPuW3r6IibIROm"
-    asecret = "SNPXYgjyAhkafXT8Uslws4MAP0rlLKcpa2zvHiq1Ovr36"
+![Captura](https://user-images.githubusercontent.com/85882973/127724463-e7f360e3-74aa-4def-b24d-490e4e7758fa.PNG)
 
-#Crear el couchDB
-        couch=couchdb.Server('http://chriss:Beidou100%@127.0.0.1:5984')
-        try:
-            print("Base de datos creada")
-            db= couch.create('1')
-        except:
-            print("Se entro a la base de datos")
-            db=couch['1']
+Se importan las librearias especificas para cada funcionamiento, esn este caso importamos couchb,tweepy y json.
 
-#Se usa la librearia de tweepy.streaming para poder realizar un track de los post de twitter
-class listener(StreamListener):
-    
-    def on_data(self, data):
-        dictTweet = json.loads(data)
-        try:
-            dictTweet["_id"] = str(dictTweet['id'])
-            doc = db.save(dictTweet)
-            print ("SAVED" + str(doc) +"=>" + str(data))
-        except:
-            print ("Already exists")
-            pass
-        return True
-    
-    def on_error(self, status):
-        print (status)
-        
-    auth = OAuthHandler(ckey, csecret)
-    auth.set_access_token(atoken, asecret)
-    twitterStream = Stream(auth, listener())
-#TRACK POSTS DE TWITTER EN ESTAS LOCALIZACIONES
-    twitterStream.filter(locations=[-78.517469,-0.241575,-78.499754,-0.222349])
-    twitterStream.filter(locations=[11.4037,41.7901,13.9414,43.568])    
-    twitterStream.filter(locations=[-79.918329,-2.234556,-79.85351,-2.171157])  
+![Captura](https://user-images.githubusercontent.com/85882973/127724503-7a24a86b-f9a6-4669-83f4-c876379fa067.PNG)
+
+Con la librearia Tweepy podemos realizar un Track de twitter en 3 diferentes localizaciones.
+
+![Captura](https://user-images.githubusercontent.com/85882973/127724530-a776cd6e-cb19-4e8e-a913-f55a79e2d84c.PNG)
+
+Redistribuye loas publicaciones y las guarda en la base de datos todas las publicaciones en estas localizaciones
 
 Ejercicio 2:
-#Librerias importadas
-import couchdb
-from tweepy import Stream
-from tweepy import OAuthHandler
-from tweepy.streaming import StreamListener
-import json
 
-#API
-ckey = "38wwOoHHCJy0cjgMBqjPzDGLF"
-csecret = "fjogk0ofjk1VBrG2xZcC1bxce2tVR6DkFbQPjUeh5wn9HB1APV"
-atoken = "115946548-kX87o1QHjrHmsnycH33Yc2KMb8yPuW3r6IibIROm"
-asecret = "SNPXYgjyAhkafXT8Uslws4MAP0rlLKcpa2zvHiq1Ovr36"
-#ENLACE CON COUCHDB
-couch=couchdb.Server('http://chriss:Beidou100%@127.0.0.1:5984')
-try:
-    print("Base de datos creada")
-    db= couch.create('2')
-except:
-    print("Se entro a la base de datos")
-    db=couch['2']
-    
-#SACA INFORMACION DE TWITTER
-class listener(StreamListener):
-    #DEFINE LOS CAMPOS Y LOS TRANSFORMA EN JHONSON
-    def on_data(self, data):
-        dictTweet = json.loads(data)
-        try:
-            dictTweet["_id"] = str(dictTweet['id'])
-            doc = db.save(dictTweet)
-            print ("SAVED" + str(doc) +"=>" + str(data))
-        except:
-            print ("Already exists")
-            pass
-        return True
-    
-    def on_error(self, status):
-        print (status)
-auth = OAuthHandler(ckey, csecret)
-auth.set_access_token(atoken, asecret)
-twitterStream = Stream(auth, listener())
+![Captura](https://user-images.githubusercontent.com/85882973/127724463-e7f360e3-74aa-4def-b24d-490e4e7758fa.PNG)
 
-#SE REALIZA UN TRACK DE LOS POST EN TWITTER QUE SE HAN REALIZADO CON UNA CATEGORIA
-twitterStream.filter(track=['Juegos Olimpicos'])
+Se importan las librearias especificas para cada funcionamiento, esn este caso importamos couchb,tweepy y json.
+
+![Captura](https://user-images.githubusercontent.com/85882973/127724503-7a24a86b-f9a6-4669-83f4-c876379fa067.PNG)
+
+Con la librearia Tweepy podemos realizar un Track de twitter en 3 diferentes localizaciones.
+
+![Captura](https://user-images.githubusercontent.com/85882973/127724576-48cff2b2-045f-4659-a44d-9b0eb612b6e4.PNG)
+
+Se buscan publicaciones referentes al tema que se puso
