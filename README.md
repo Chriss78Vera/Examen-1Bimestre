@@ -23,8 +23,8 @@ Se importan las librearias especificas para cada funcionamiento, esn este caso i
 
 ![Captura](https://user-images.githubusercontent.com/85882973/127724503-7a24a86b-f9a6-4669-83f4-c876379fa067.PNG)
 
-Con la librearia Tweepy podemos realizar un Track de twitter en 3 diferentes localizaciones.
+Con la librearia Tweepy podemos realizar un Track de twitter.
 
 ![Captura](https://user-images.githubusercontent.com/85882973/127724576-48cff2b2-045f-4659-a44d-9b0eb612b6e4.PNG)
 
-Se buscan publicaciones referentes al tema que se puso
+Se buscan publicaciones referentes al tema que se puso.
