@@ -4,10 +4,8 @@ from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import json
 
-ckey = "38wwOoHHCJy0cjgMBqjPzDGLF"
-csecret = "fjogk0ofjk1VBrG2xZcC1bxce2tVR6DkFbQPjUeh5wn9HB1APV"
-atoken = "115946548-kX87o1QHjrHmsnycH33Yc2KMb8yPuW3r6IibIROm"
-asecret = "SNPXYgjyAhkafXT8Uslws4MAP0rlLKcpa2zvHiq1Ovr36"
+#APIS de TWiTTER
+
 
 import couchdb
 import random as rd
