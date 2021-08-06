@@ -9,7 +9,10 @@ import json
 
 import couchdb
 import random as rd
-couch=couchdb.Server('http://chriss:Beidou100%@127.0.0.1:5984')
+
+
+# Enlace de COCHDB
+
 try:
     print("Base de datos creada")
     db= couch.create('1')
