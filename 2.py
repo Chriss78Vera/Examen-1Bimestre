@@ -5,12 +5,9 @@ from tweepy.streaming import StreamListener
 import json
 
 #API
-ckey = "38wwOoHHCJy0cjgMBqjPzDGLF"
-csecret = "fjogk0ofjk1VBrG2xZcC1bxce2tVR6DkFbQPjUeh5wn9HB1APV"
-atoken = "115946548-kX87o1QHjrHmsnycH33Yc2KMb8yPuW3r6IibIROm"
-asecret = "SNPXYgjyAhkafXT8Uslws4MAP0rlLKcpa2zvHiq1Ovr36"
+
 #ENLACE CON COUCHDB
-couch=couchdb.Server('http://chriss:Beidou100%@127.0.0.1:5984')
+
 try:
     print("Base de datos creada")
     db= couch.create('2')
