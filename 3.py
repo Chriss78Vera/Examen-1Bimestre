@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 from pymongo import MongoClient
 #CONECION CON MONGO
-#CONECT = MongoClient('mongodb+srv://Chriss:Beidou100@cluster0.3hs4q.mongodb.net/test?authSource=admin&replicaSet=atlas-13ecwb-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true')
+
 #CREAMOS LA BASE
 def find_2nd(string, substring):
     return string.find(substring, string.find(substring) + 1)
